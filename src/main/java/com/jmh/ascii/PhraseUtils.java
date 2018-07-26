@@ -32,7 +32,7 @@ public class PhraseUtils {
 
     private static boolean containsNotAscii(String input) {
         for (int i = 0 ; i < input.length(); i ++) {
-            if (input.charAt(0) > 127) {
+            if (input.charAt(i) > 127) {
                 return true;
             }
         }

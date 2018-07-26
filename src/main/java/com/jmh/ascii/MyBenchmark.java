@@ -27,6 +27,7 @@ package com.jmh.ascii;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.profile.GCProfiler;
+import org.openjdk.jmh.profile.HotspotMemoryProfiler;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -243,7 +244,7 @@ public class MyBenchmark {
     }
 
     @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 20, timeUnit = TimeUnit.MILLISECONDS)
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     public void testX4Performance() {
@@ -253,7 +254,7 @@ public class MyBenchmark {
     }
 
     @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 20, timeUnit = TimeUnit.MILLISECONDS)
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     public void testX4X1IFPerformance() {
@@ -263,7 +264,7 @@ public class MyBenchmark {
     }
 
     @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+    @Measurement(iterations = 20, timeUnit = TimeUnit.MILLISECONDS)
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     public void testX1Performance() {
@@ -272,25 +273,25 @@ public class MyBenchmark {
         }
     }
 
-    @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    public void testStringBuilderPerformance() {
-        for (String phrase : PHRASES) {
-            PhraseUtils.toAscii3(phrase);
-        }
-    }
-
-    @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-    @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    public void testCharArrayPerformance() {
-        for (String phrase : PHRASES) {
-            PhraseUtils.toAsciiCharArray(phrase);
-        }
-    }
+//    @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+//    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+//    @Benchmark
+//    @BenchmarkMode(Mode.Throughput)
+//    public void testStringBuilderPerformance() {
+//        for (String phrase : PHRASES) {
+//            PhraseUtils.toAscii3(phrase);
+//        }
+//    }
+//
+//    @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+//    @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
+//    @Benchmark
+//    @BenchmarkMode(Mode.Throughput)
+//    public void testCharArrayPerformance() {
+//        for (String phrase : PHRASES) {
+//            PhraseUtils.toAsciiCharArray(phrase);
+//        }
+//    }
     
 
 }
